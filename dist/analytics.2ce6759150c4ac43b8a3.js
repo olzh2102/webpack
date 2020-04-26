@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("function createAnalytics() {\n\tlet counter = 0\n\tlet isDestroyed = false\n\n\tconst listener = () => counter++\n\tdocument.addEventListener('click', listener)\n\n\treturn {\n\t\tdestroy() {\n\t\t\tdocument.removeEventListener(\n\t\t\t\t'click',\n\t\t\t\tlistener\n\t\t\t)\n\t\t\tisDestroyed = true\n\t\t},\n\n\t\tgetClicks() {\n\t\t\tif (isDestroyed) {\n\t\t\t\treturn 'Analytics is destroyed'\n\t\t\t}\n\n\t\t\treturn counter\n\t\t},\n\t}\n}\n\nwindow.analytics = createAnalytics()\n\n\n//# sourceURL=webpack:///./src/analytics.js?");
+eval("function createAnalytics() {\n\tlet counter = 0\n\tlet isDestroyed = false\n\n\tconst listener = () => counter++\n\tdocument.addEventListener('click', listener)\n\n\treturn {\n\t\tdestroy() {\n\t\t\tdocument.removeEventListener(\n\t\t\t\t'click',\n\t\t\t\tlistener\n\t\t\t)\n\t\t\tisDestroyed = true\n\t\t},\n\n\t\tgetClicks() {\n\t\t\tif (isDestroyed) {\n\t\t\t\treturn `Analytics is destroyed. Total clicks = ${counter}`\n\t\t\t}\n\n\t\t\treturn counter\n\t\t},\n\t}\n}\n\nwindow.analytics = createAnalytics()\n\n\n//# sourceURL=webpack:///./src/analytics.js?");
 
 /***/ })
 

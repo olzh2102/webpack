@@ -1,4 +1,5 @@
 const path = require('path')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	mode: 'development',
@@ -10,9 +11,15 @@ module.exports = {
 
 	// where to output generated file
 	output: {
-		filename: '[name].bundle.js',
+		filename: '[name].[contenthash].js',
 
 		// which folder to create and put bundle.js
 		path: path.resolve(__dirname, 'dist'),
 	},
+
+	plugins: [
+		new HTMLWebpackPlugin({
+			template: './src/index.html',
+		}),
+	],
 }
