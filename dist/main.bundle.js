@@ -81,19 +81,32 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/analytics.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/analytics.js":
-/*!**************************!*\
-  !*** ./src/analytics.js ***!
-  \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./src/Post.js":
+/*!*********************!*\
+  !*** ./src/Post.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("function createAnalytics() {\n\tlet counter = 0\n\tlet isDestroyed = false\n\n\tconst listener = () => counter++\n\tdocument.addEventListener('click', listener)\n\n\treturn {\n\t\tdestroy() {\n\t\t\tdocument.removeEventListener(\n\t\t\t\t'click',\n\t\t\t\tlistener\n\t\t\t)\n\t\t\tisDestroyed = true\n\t\t},\n\n\t\tgetClicks() {\n\t\t\tif (isDestroyed) {\n\t\t\t\treturn 'Analytics is destroyed'\n\t\t\t}\n\n\t\t\treturn counter\n\t\t},\n\t}\n}\n\nwindow.analytics = createAnalytics()\n\n\n//# sourceURL=webpack:///./src/analytics.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Post; });\nclass Post {\n\tconstructor(title) {\n\t\tthis.title = title\n\t\tthis.date = new Date()\n\t}\n\n\ttoString() {\n\t\treturn JSON.stringify({\n\t\t\ttitle: this.title,\n\t\t\tdate: this.date.toJSON(),\n\t\t})\n\t}\n}\n\n\n//# sourceURL=webpack:///./src/Post.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Post__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Post */ \"./src/Post.js\");\n\n\nconst post = new _Post__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('Webpack Post Title')\n\nconsole.log('Post to String: ', post.toString())\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
