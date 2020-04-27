@@ -28,4 +28,15 @@ module.exports = {
 
 		new CleanWebpackPlugin(),
 	],
+
+	// loaders - makes webpack to be able
+	// to work with other extensions
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+		],
+	},
 }
