@@ -5,7 +5,7 @@ const {
 } = require('clean-webpack-plugin')
 
 module.exports = {
-	context: 'src',
+	context: path.resolve(__dirname, 'src'),
 	mode: 'development',
 	// where to start
 	entry: {
