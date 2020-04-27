@@ -5,11 +5,12 @@ const {
 } = require('clean-webpack-plugin')
 
 module.exports = {
+	context: 'src',
 	mode: 'development',
 	// where to start
 	entry: {
-		main: './src/index.js',
-		analytics: './src/analytics.js',
+		main: './index.js',
+		analytics: './analytics.js',
 	},
 
 	// where to output generated file
@@ -22,7 +23,7 @@ module.exports = {
 
 	plugins: [
 		new HTMLWebpackPlugin({
-			template: './src/index.html',
+			template: './index.html',
 		}),
 
 		new CleanWebpackPlugin(),
